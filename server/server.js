@@ -11,15 +11,18 @@ app.use(cors());
 app.use(express.json());
 
 
-let con = mysql2.createConnection({
+const con = mysql2.createPool({
   host: process.env.MYSQLHOST,
   port: Number(process.env.MYSQLPORT),
   user: process.env.MYSQLUSER,
   password: process.env.MYSQLPASSWORD,
   database: process.env.MYSQLDATABASE,
+  waitForConnections: true,
+  connectionLimit: 10,
+  queueLimit: 0,
   ssl: {
-    rejectUnauthorized: false
-  }
+    rejectUnauthorized: false,
+  },
 });
 
 app.get("/reg",(req,res)=>{
