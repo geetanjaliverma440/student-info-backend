@@ -3,7 +3,7 @@ import mysql2 from 'mysql2';
 import cors from 'cors';
 import dotenv from "dotenv";
 
-dotenv.config({ path: "../.env" });
+dotenv.config();
 
 let app = express();
 
@@ -29,7 +29,10 @@ app.get("/reg",(req,res)=>{
     let {x,y,z,q}= req.query;
     let sql="insert into registration values(?,?,?,?) ";
     con.query(sql,[x,y,z,q],(err,result)=>{
-        if (err) throw err;
+        if (err) {
+    console.error(err);
+    return res.status(500).json({ error: err.message });
+}
         res.json("Saved succesfully");
 })
 });
@@ -37,7 +40,10 @@ app.get("/login",(req,res)=>{
     let {x,y}=req.query;
     let sql="select * from registration where id=? and password=? ";
     con.query(sql,[x,y],(err,result)=>{
-        if (err) throw err;
+        if (err) {
+    console.error(err);
+    return res.status(500).json({ error: err.message });
+}
         
         if(result.length>0)
         {
@@ -52,7 +58,10 @@ app.get("/student",(req,res)=>{
     let {x,y,z,q}= req.query;
     let sql="insert into student values(?,?,?,?) ";
     con.query(sql,[x,y,z,q],(err,result)=>{
-        if (err) throw err;
+       if (err) {
+    console.error(err);
+    return res.status(500).json({ error: err.message });
+}
         res.json("Saved succesfully");
 })
 });
@@ -61,7 +70,10 @@ app.get("/detail",(req,res)=>{
     let {a}=req.query;
     let sql="select * from student where id =?";
     con.query(sql,[a],(err,result)=>{
-        if (err) throw err;
+        if (err) {
+    console.error(err);
+    return res.status(500).json({ error: err.message });
+}
         res.json(result);
     })
 
@@ -70,7 +82,10 @@ app.get("/attendance",(req,res)=>{
     let {a,b,c,d,e,f}= req.query;
     let sql="insert into attendance values(?,?,?,?,?,?) ";
     con.query(sql,[a,b,c,d,e,f],(err,result)=>{
-        if (err) throw err;
+       if (err) {
+    console.error(err);
+    return res.status(500).json({ error: err.message });
+}
         res.json("Saved succesfully");
 })
 });
@@ -79,7 +94,10 @@ app.get("/viewattendance",(req,res)=>{
     let {a}=req.query;
     let sql="select * from attendance where id =?";
     con.query(sql,[a],(err,result)=>{
-        if (err) throw err;
+        if (err) {
+    console.error(err);
+    return res.status(500).json({ error: err.message });
+}
         res.json(result);
     })
 
@@ -87,12 +105,13 @@ app.get("/viewattendance",(req,res)=>{
 
 
 
-con.connect((err) => {
+con.getConnection((err, connection) => {
     if (err) {
         console.log("Database connection failed:");
         console.log(err);
     } else {
         console.log("Database connected");
+        connection.release(); // Return connection to the pool
     }
 });
 app.post("/addmarks", (req, res) => {
