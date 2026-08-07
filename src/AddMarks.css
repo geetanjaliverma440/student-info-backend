@@ -1,0 +1,121 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: aliceblue;
+}
+
+
+/* Full page */
+
+.page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Main box */
+
+.marks-box {
+    width: 500px;
+    padding: 30px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); */
+}
+
+
+/* Heading */
+
+.marks-box h2 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+
+/* ID section */
+
+.id-section {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.id-section label {
+    width: 70px;
+    font-weight: bold;
+}
+
+.id-section input {
+    width: 250px;
+}
+
+
+/* All inputs */
+
+input {
+    height: 38px;
+    padding: 8px 10px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+input:focus {
+    outline: none;
+    border-color: #333;
+}
+
+
+/* Subject / Marks heading */
+
+.heading-row {
+    display: grid;
+    grid-template-columns: 1fr 130px;
+    gap: 30px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+
+/* Each subject + marks row */
+
+.marks-row {
+    display: grid;
+    grid-template-columns: 1fr 130px;
+    gap: 30px;
+    margin-bottom: 15px;
+}
+
+
+/* Save button */
+
+.save-btn {
+    display: block;
+    margin: 25px auto 0;
+
+    padding: 10px 35px;
+
+    border: none;
+    border-radius: 5px;
+
+    background-color: #2b3e78;
+    color: white;
+
+    font-size: 16px;
+    cursor: pointer;
+}
+
+
+/* Button hover */
+
+.save-btn:hover {
+    background-color: #21315f;
+}
