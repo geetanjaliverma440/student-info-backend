@@ -9,7 +9,7 @@ import Login from './Login.jsx'
 import Dash from './Dash.jsx'
 import Addstudent from './Addstudent.jsx'
 import Addattendance from './Addattendance.jsx'
-import AddMarks from './Addmarks.jsx'
+import AddMarks from './AddMarks.jsx'
 import Detail from './Detail.jsx'
 
 
