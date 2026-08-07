@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
   
 
      async function show(){
-        let result = await fetch(`http://localhost:8899/login?x=${x}&y=${y}`);
+        let result = await fetch(`https://student-info-backend-75ai.onrender.com/login?x=${x}&y=${y}`);
         let data = await result.json();
         
         if(data=="valid"){

@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
      let [w,setw]= useState();
 
      async function show(){
-        let res = await fetch(`http://localhost:8899/student?x=${x}&y=${y}&z=${z}&q=${q}`);
+        let res = await fetch(`https://student-info-backend-75ai.onrender.com/student?x=${x}&y=${y}&z=${z}&q=${q}`);
         let data = await res.json();
         alert("Saved succesfully")
          if(data=="Saved succesfully"){

@@ -7,15 +7,15 @@ function Detail() {
   const [y, sety] = useState([]);
 
   async function show() {
-    let result = await fetch(`http://localhost:8899/detail?a=${a}`);
+    let result = await fetch(`https://student-info-backend-75ai.onrender.com/detail?a=${a}`);
     let data = await result.json();
     setw(data);
 
-    let att = await fetch(`http://localhost:8899/viewattendance?a=${a}`);
+    let att = await fetch(`https://student-info-backend-75ai.onrender.com/viewattendance?a=${a}`);
     let attendance = await att.json();
     setz(attendance);
 
-    let marks = await fetch(`http://localhost:8899/viewmarks?a=${a}`);
+    let marks = await fetch(`https://student-info-backend-75ai.onrender.com/viewmarks?a=${a}`);
     let marksData = await marks.json();
     sety(marksData);
   }

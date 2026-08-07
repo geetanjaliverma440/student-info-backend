@@ -27,7 +27,7 @@ function AddMarks() {
             marks4
         };
 
-        const response = await fetch("http://localhost:8899/addmarks", {
+        const response = await fetch("https://student-info-backend-75ai.onrender.com/addmarks", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
