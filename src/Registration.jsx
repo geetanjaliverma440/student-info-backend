@@ -1,37 +1,81 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-  function Registration(){
-     let navigate=useNavigate();
-     let [x,setx]= useState();
-     let [y,sety]= useState();
-     let [z,setz]= useState();
-     let [q,setq]= useState();
-     let [w,setw]= useState();
+import { useNavigate, NavLink } from "react-router-dom";
 
-     async function show(){
-        let res = await fetch(`https://student-info-backend-75ai.onrender.com/reg?x=${x}&y=${y}&z=${z}&q=${q}`);
-        let data = await res.json();
-        alert("Saved succesfully")
-         if(data=="Saved succesfully"){
-          navigate("/Login");
-        }else{
-          alert("invalid");
-        }
+function Registration() {
+  const navigate = useNavigate();
+
+  const [x, setx] = useState("");
+  const [y, sety] = useState("");
+  const [z, setz] = useState("");
+  const [q, setq] = useState("");
+
+  async function show() {
+    try {
+      const res = await fetch(
+        `https://student-info-backend-75ai.onrender.com/reg?x=${x}&y=${y}&z=${z}&q=${q}`
+      );
+
+      const data = await res.json();
+
+      alert("Saved successfully");
+
+      if (data === "Saved succesfully" || data === "Saved successfully") {
+        navigate("/login");
+      } else {
+        alert("Invalid");
+      }
+    } catch (err) {
+      console.log(err);
+      alert("Something went wrong!");
+    }
   }
 
+  return (
+    <div className="outer1">
 
-  return<>
-      <div className="outer1">
-        <h4>Enter Details :</h4>
-       <input type="text" placeholder=" Id" onChange={(e)=>setx(e.target.value)}/>
-       <input type="text" placeholder=" Name" onChange={(e)=>sety(e.target.value)}/>
-      <input type="text" placeholder="Mobile" onChange={(e)=>setz(e.target.value)}/>
-      <input type="text" placeholder="password" onChange={(e)=>setq(e.target.value)}/>
-    
-       <button onClick={show}>Save</button>
-     
-       {w}
-        </div>
- </>
+      <h2>Create Your Account</h2>
+
+      <p className="subtitle">
+        Join the Student Information System and manage student records securely.
+      </p>
+
+      <label>Student ID</label>
+      <input
+        type="text"
+        placeholder="Enter Student ID"
+        onChange={(e) => setx(e.target.value)}
+      />
+
+      <label>Full Name</label>
+      <input
+        type="text"
+        placeholder="Enter Full Name"
+        onChange={(e) => sety(e.target.value)}
+      />
+
+      <label>Mobile Number</label>
+      <input
+        type="text"
+        placeholder="Enter Mobile Number"
+        onChange={(e) => setz(e.target.value)}
+      />
+
+      <label>Password</label>
+      <input
+        type="password"
+        placeholder="Create Password"
+        onChange={(e) => setq(e.target.value)}
+      />
+
+      <button onClick={show}>Create Account</button>
+
+      <p className="login-text">
+        Already have an account?
+        <NavLink to="/login"> Sign In</NavLink>
+      </p>
+
+    </div>
+  );
 }
-  export default Registration;
+
+export default Registration;

@@ -1,119 +1,485 @@
-.inputbox{
-    display:flex;
-    justify-content:center;
-    gap:10px;
-    margin:30px 0;
-}
-
-.inputbox input{
-    width:250px;
-    padding:10px;
-    font-size:16px;
-}
-
-.inputbox button{
-    padding:10px 20px;
-    cursor:pointer;
-    border:none;
-    color:white;
-    border-radius:5px;
-    background-color:#244980;
-}
-.inbox{
-    width:420px;
-    margin:20px auto;
-    padding:20px 30px;
-    border:1px solid #ccc;
-    border-radius:10px;
-    background:#f7f7f7;
-    box-shadow:0 2px 8px rgba(0,0,0,.15);
-}
-
-/* Student Details */
-.inbox p{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin:12px 0;
-    font-size:17px;
-}
-
-.inbox span:first-child{
-    font-weight:bold;
-}
-
-.outer22{
-    width:fit-content;
-    margin:40px auto;
-}
-
-.content22{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:30px;
-}
-
-.attendance,
-.marks{
-     width:420px;
-}
-
-/* Blue Heading */
-.heading{
-    background:#0d6efd;
-    color:white;
-    text-align:center;
-    padding:12px;
-    border-radius:8px;
-    margin-bottom:15px;
-}
-
-/* Attendance & Marks Boxes */
-.box22,
-.box{
-    width:100%;
-    padding:20px 30px;
-    border:1px solid #ddd;
-    border-radius:10px;
-    background:#fff;
-    box-shadow:0 2px 6px rgba(0,0,0,.15);
+*{
     box-sizing:border-box;
 }
 
-/* Attendance & Marks Content */
-.box22 p,
-.box p{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+
+body{
+
+    margin:0;
+
+    font-family:"Segoe UI",Arial,sans-serif;
+
+    background:#f1f5f9;
+
+}
+
+
+
+/* Main page */
+
+.detail-page{
+
+    min-height:100vh;
+
+    padding:40px;
+
+}
+
+
+
+/* Heading */
+
+
+h2{
+
+    text-align:center;
+
+    font-size:34px;
+
+    color:#1e3a8a;
+
     margin:10px 0;
+
+}
+
+
+
+p{
+
+    text-align:center;
+
+    color:#64748b;
+
     font-size:16px;
+
 }
 
-.box22 span:first-child,
-.box span:first-child{
-    font-weight:bold;
+
+
+
+
+/* Search area */
+
+
+.search-box{
+
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:15px;
+
+    margin:35px 0;
+
+
 }
 
-@media (max-width:768px){
+
+
+.search-box input{
+
+
+    width:200px;
+
+    height:48px;
+
+
+    padding:0 18px;
+
+
+    border-radius:12px;
+
+
+    border:1px solid #cbd5e1;
+
+
+    font-size:16px;
+
+
+    outline:none;
+
+
+    background:white;
+
+
+}
+
+
+
+.search-box input:focus{
+
+
+    border-color:#2563eb;
+
+    box-shadow:0 0 8px rgba(37,99,235,0.2);
+
+
+}
+
+
+
+
+
+.search-box button{
+
+
+    height:48px;
+
+    padding:0 30px;
+
+
+    border:none;
+
+
+    border-radius:12px;
+
+
+    background:#2563eb;
+
+
+    color:white;
+
+
+    font-size:16px;
+
+
+    cursor:pointer;
+
+
+    transition:.3s;
+
+
+}
+
+
+
+.search-box button:hover{
+
+
+    background:#1d4ed8;
+
+}
+
+
+
+
+
+/* Student details box */
+
+
+.inbox{
+
+
+    width:500px;
+
+
+    margin:30px auto;
+
+
+    background:white;
+
+
+    padding:30px 40px;
+
+
+    border-radius:18px;
+
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,0.08);
+
+
+}
+
+
+
+/* student details heading */
+
+
+.inbox h3{
+
+
+    text-align:center;
+
+
+    color:#2563eb;
+
+
+    font-size:23px;
+
+
+    margin-bottom:25px;
+
+
+}
+
+
+
+
+/* Student rows */
+
+
+.inbox div{
+
+
+    display:grid;
+
+
+    grid-template-columns:100px 20px auto;
+
+
+    margin:15px 0;
+
+
+    font-size:17px;
+
+
+}
+
+
+
+.inbox div span:first-child{
+
+
+    font-weight:700;
+
+    color:#334155;
+
+
+}
+
+
+
+.inbox div span:nth-child(2){
+
+
+    color:#64748b;
+
+}
+
+
+
+.inbox div span:last-child{
+
+
+    font-weight:600;
+
+    color:#475569;
+
+
+}
+
+
+
+
+
+/* Attendance and marks section */
+
+
+.content22{
+
+    display:grid;
+
+    grid-template-columns:repeat(2, 1fr);
+
+    max-width:1100px;
+
+    margin:40px auto;
+
+    gap:35px;
+
+}
+@media(max-width:900px){
 
     .content22{
-        flex-direction:column;
+
+        grid-template-columns:1fr;
+
+        width:70%;
+
     }
 
-    .attendance,
-    .marks{
-        width:100%;
-    }
-
-    .inbox{
-        width:90%;
-    }
-
-    .box22,
-    .box{
-        width:90%;
-        margin:auto;
-    }
 }
+
+
+
+/* Cards */
+
+
+.attendance,
+.marks{
+
+
+    background:white;
+    
+
+    padding:25px;
+
+
+    border-radius:18px;
+
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,0.08);
+
+
+}
+
+
+
+
+.heading{
+
+
+    text-align:center;
+
+
+    color:#2563eb;
+
+
+    font-size:22px;
+
+
+    margin-bottom:20px;
+
+
+}
+
+
+
+
+
+/* Attendance boxes */
+
+
+.box22,
+.box{
+
+
+    background:#f8fafc;
+    border:1px solid #e2e8f0;
+
+
+    border-radius:12px;
+
+
+    padding:15px 18px;
+
+
+    margin-bottom:15px;
+
+
+    display:flex;
+
+
+    justify-content:space-between;
+
+
+    font-size:16px;
+
+
+    transition:.3s;
+
+
+}
+
+
+
+
+.box22:hover,
+.box:hover{
+
+
+    background:#eff6ff;
+
+
+    transform:translateY(-3px);
+
+
+}
+
+
+
+/* Marks green */
+
+
+.box{
+
+
+    border-left:5px solid #16a34a;
+
+
+}
+
+
+
+.box22{
+
+
+    border-left:5px solid #2563eb;
+
+
+}
+
+
+
+
+/* @media(max-width:900px){
+
+
+
+.detail-page{
+
+
+    padding:20px;
+
+
+}
+
+
+
+
+.search-box{
+
+
+    flex-direction:column;
+
+
+}
+
+
+
+.search-box input{
+
+
+    width:100%;
+
+
+}
+
+
+
+
+.content22{
+
+
+    grid-template-columns:1fr;
+
+
+}
+
+
+
+.inbox{
+
+
+    width:100%;
+
+
+}
+
+
+} */

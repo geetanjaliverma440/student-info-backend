@@ -1,41 +1,78 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
-import { BrowserRouter,Routes,Route } from 'react-router-dom'
-import { NavLink } from 'react-router-dom'
-import Registration from './Registration.jsx'
-import Login from './Login.jsx'
-import Dash from './Dash.jsx'
-import Addstudent from './Addstudent.jsx'
-import Addattendance from './Addattendance.jsx'
-import AddMarks from './AddMarks.jsx'
-import Detail from './Detail.jsx'
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import "./index.css";
 
+import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
 
-function Menu(){
-  return <div className="outer">
-    <NavLink to ="/registration"><button>Register</button></NavLink>
-    <NavLink to ="/login"><button>Login</button></NavLink>
+import App from "./App.jsx";
+import Registration from "./Registration.jsx";
+import Login from "./Login.jsx";
+import Dash from "./Dash.jsx";
+import Addstudent from "./Addstudent.jsx";
+import Addattendance from "./Addattendance.jsx";
+import AddMarks from "./AddMarks.jsx";
+import Detail from "./Detail.jsx";
 
-  </div>
+import { FaUser, FaLock, FaClipboardList } from "react-icons/fa";
+
+function Menu() {
+  return (
+    <div className="outer">
+      <h1>🎓 Student Information System</h1>
+
+      <p>
+        Register new students, securely log in, and manage academic
+        information effortlessly.
+      </p>
+
+      <div className="buttons">
+        <NavLink to="/registration">
+          <button>Create Account</button>
+        </NavLink>
+
+        <NavLink to="/login">
+          <button>Sign In</button>
+        </NavLink>
+      </div>
+
+      {/* Feature Cards */}
+
+      <div className="features">
+        <div className="card">
+          <FaUser className="icon" />
+          <h3>Student Registration</h3>
+          <p>Add students quickly and easily.</p>
+        </div>
+
+        <div className="card">
+          <FaLock className="icon" />
+          <h3>Secure Login</h3>
+          <p>Safe and protected access for every user.</p>
+        </div>
+
+        <div className="card">
+          <FaClipboardList className="icon" />
+          <h3>Manage Records</h3>
+          <p>View, update and organize student information.</p>
+        </div>
+      </div>
+    </div>
+  );
 }
 
-createRoot(document.getElementById('root')).render(
+createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<Menu/>}/>
-      <Route path="/registration" element={<Registration/>}/>
-      <Route path="/login" element={<Login/>}/>
-      <Route path="/dash" element={<Dash/>}/>
-      <Route path="/student" element={<Addstudent/>}/>
-      <Route path="/addattendance" element={<Addattendance/>}/>
-      <Route path="/addmarks" element={<AddMarks/>}/>
-      <Route path="/detail" element={<Detail/>}/>
-    
-      
-    </Routes>
+      <Routes>
+        <Route path="/" element={<Menu />} />
+        <Route path="/registration" element={<Registration />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/dash" element={<Dash />} />
+        <Route path="/student" element={<Addstudent />} />
+        <Route path="/addattendance" element={<Addattendance />} />
+        <Route path="/addmarks" element={<AddMarks />} />
+        <Route path="/detail" element={<Detail />} />
+      </Routes>
     </BrowserRouter>
-  </StrictMode>,
-)
+  </StrictMode>
+);

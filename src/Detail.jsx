@@ -22,25 +22,53 @@ function Detail() {
 
   return (
     <>
-      <div className="inputbox">
+     <div className="search-card">
+
+    <h2>🎓 Student Details</h2>
+
+    <p>Search student information using ID</p>
+
+    <div className="search-box">
+
         <input
-          type="search"
-          placeholder="Enter ID"
-          value={a}
-          onChange={(e) => seta(e.target.value)}
+        type="search"
+        placeholder="Enter Student ID"
+        value={a}
+        onChange={(e)=>seta(e.target.value)}
         />
-        <button onClick={show}>View</button>
-      </div>
+
+        <button onClick={show}>
+            View Details
+        </button>
+
+    </div>
+
+</div>
 
       {/* Student Details */}
 
       {w.length > 0 &&
         w.map((e, index) => (
-        <div className="inbox" key={index}>
-  <p><span>ID :</span><span>{e.id}</span></p>
-  <p><span>Name :</span><span>{e.name}</span></p>
-  <p><span>Branch :</span><span>{e.branch}</span></p>
-  <p><span>Sem :</span><span>{e.sem}</span></p>
+      <div className="inbox">
+
+<h3>Student Information</h3>
+
+<div className="student-row">
+<span>ID</span><span>:</span><span>{e.id}</span>
+</div>
+
+<div className="student-row">
+<span>Name</span><span>:</span><span>{e.name}</span>
+</div>
+
+<div className="student-row">
+<span>Branch</span><span>:</span><span>{e.branch}</span>
+</div>
+
+<div className="student-row">
+<span>Sem</span><span>:</span><span>{e.sem}</span>
+</div>
+
 </div>
         ))}
 
@@ -56,9 +84,9 @@ function Detail() {
 
             {z.map((e, index) => (
            <div className="box22" key={index}>
-  <p><span>Month :</span><span>{e.month}</span></p>
-  <p><span>Total Classes :</span><span>{e.total_days}</span></p>
-  <p><span>Attended Classes :</span><span>{e.present_days}</span></p>
+  <p><span><b>Month :</b></span> <span>{e.month}</span></p>
+  <p><span><b>Total Classes :</b></span> <span>{e.total_days}</span></p>
+  <p><span><b>Attended Classes :</b></span> <span>{e.present_days}</span></p>
 </div>
             ))}
           </div>
@@ -70,10 +98,11 @@ function Detail() {
 
             {y.map((e, index) => (
             <div className="box" key={index}>
-  <p><span>{e.subject1} :</span><span>{e.marks1}</span></p>
-  <p><span>{e.subject2} :</span><span>{e.marks2}</span></p>
-  <p><span>{e.subject3} :</span><span>{e.marks3}</span></p>
-  <p><span>{e.subject4} :</span><span>{e.marks4}</span></p>
+  <p><span><b>{e.subject1} :</b></span> <span>{e.marks1}</span></p>
+  <p><span><b>{e.subject2} :</b></span> <span>{e.marks1}</span></p>
+  <p><span><b>{e.subject3} :</b></span> <span>{e.marks1}</span></p>
+  <p><span><b>{e.subject4} :</b></span> <span>{e.marks1}</span></p>
+ 
 </div>
             ))}
           </div>

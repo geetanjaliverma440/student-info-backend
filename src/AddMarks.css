@@ -1,121 +1,163 @@
-* {
-    box-sizing: border-box;
+*{
+    box-sizing:border-box;
 }
 
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: aliceblue;
+body{
+    margin:0;
+    font-family:"Poppins",sans-serif;
+    background:linear-gradient(135deg,#EEF2FF,#F8FAFC);
 }
 
-
-/* Full page */
-
-.page {
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.page{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:40px;
 }
 
+.marks-box{
 
-/* Main box */
+    width:600px;
 
-.marks-box {
-    width: 500px;
-    padding: 30px;
-    background-color: rgba(0, 0, 0, 0.2);
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); */
+    background:white;
+
+    padding:40px;
+
+    border-radius:18px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+    transition:.3s;
 }
 
-
-/* Heading */
-
-.marks-box h2 {
-    text-align: center;
-    margin-top: 0;
-    margin-bottom: 25px;
+.marks-box:hover{
+    box-shadow:0 18px 40px rgba(37,99,235,.12);
 }
 
-
-/* ID section */
-
-.id-section {
-    display: flex;
-    align-items: center;
-    margin-bottom: 30px;
+.title-section{
+    text-align:center;
+    margin-bottom:35px;
 }
 
-.id-section label {
-    width: 70px;
-    font-weight: bold;
+.marks-icon{
+    font-size:55px;
+    color:#F59E0B;
+    margin-bottom:10px;
 }
 
-.id-section input {
-    width: 250px;
+.title-section h2{
+    margin:0;
+    color:#0F172A;
+    font-size:32px;
 }
 
-
-/* All inputs */
-
-input {
-    height: 38px;
-    padding: 8px 10px;
-    border: 1px solid #aaa;
-    border-radius: 5px;
-    font-size: 15px;
+.subtitle{
+    color:#64748B;
+    margin-top:10px;
+    line-height:24px;
 }
 
-input:focus {
-    outline: none;
-    border-color: #333;
+.id-section{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    margin-bottom:25px;
 }
 
-
-/* Subject / Marks heading */
-
-.heading-row {
-    display: grid;
-    grid-template-columns: 1fr 130px;
-    gap: 30px;
-    margin-bottom: 10px;
-    font-weight: bold;
+.id-section label{
+    font-weight:600;
+    color:#334155;
 }
 
-
-/* Each subject + marks row */
-
-.marks-row {
-    display: grid;
-    grid-template-columns: 1fr 130px;
-    gap: 30px;
-    margin-bottom: 15px;
+.id-section input{
+    flex:1;
 }
 
+.heading-row{
 
-/* Save button */
+    display:grid;
 
-.save-btn {
-    display: block;
-    margin: 25px auto 0;
+    grid-template-columns:2fr 1fr;
 
-    padding: 10px 35px;
+    gap:20px;
 
-    border: none;
-    border-radius: 5px;
+    font-weight:600;
 
-    background-color: #2b3e78;
-    color: white;
+    color:#334155;
 
-    font-size: 16px;
-    cursor: pointer;
+    margin-bottom:15px;
 }
 
+.marks-row{
 
-/* Button hover */
+    display:grid;
 
-.save-btn:hover {
-    background-color: #21315f;
+    grid-template-columns:2fr 1fr;
+
+    gap:20px;
+
+    margin-bottom:18px;
+}
+
+input{
+
+    width:100%;
+
+    padding:13px;
+
+    border:1px solid #CBD5E1;
+
+    border-radius:10px;
+
+    font-size:15px;
+
+    background:#F8FAFC;
+
+    outline:none;
+
+    transition:.3s;
+}
+
+input:focus{
+
+    border-color:#2563EB;
+
+    background:white;
+
+    box-shadow:0 0 0 4px rgba(37,99,235,.15);
+}
+
+.save-btn{
+
+    width:100%;
+
+    margin-top:25px;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#273d7a;
+
+    color:white;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.save-btn:hover{
+
+    background:#D97706;
+
+    transform:translateY(-2px);
+
+    box-shadow:0 10px 20px rgba(245,158,11,.25);
 }

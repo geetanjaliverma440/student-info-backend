@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./AddMarks.css";
-
+import { FaChartBar } from "react-icons/fa";
 function AddMarks() {
     const [id, setId] = useState("");
 
@@ -45,8 +45,15 @@ function AddMarks() {
 
             <div className="marks-box">
 
-                <h2>Add Marks</h2>
+               <div className="title-section">
+    <FaChartBar className="marks-icon"/>
 
+    <h2>Student Marks</h2>
+
+    <p className="subtitle">
+        Enter subject names and marks for the selected student.
+    </p>
+</div>
                 {/* ID */}
                 <div className="id-section">
                     <label>ID</label>
@@ -141,7 +148,7 @@ function AddMarks() {
 
                 {/* Save button */}
                 <button className="save-btn" onClick={saveMarks}>
-                    SAVE
+                   Submit Marks
                 </button>
 
             </div>

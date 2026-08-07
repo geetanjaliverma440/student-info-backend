@@ -1,15 +1,20 @@
-import express from 'express';
-import mysql2 from 'mysql2';
-import cors from 'cors';
+import express from "express";
+import mysql2 from "mysql2";
+import cors from "cors";
 import dotenv from "dotenv";
-
 dotenv.config();
 
-let app = express();
+console.log({
+  host: process.env.MYSQLHOST,
+  port: process.env.MYSQLPORT,
+  user: process.env.MYSQLUSER,
+  database: process.env.MYSQLDATABASE,
+});
+
+const app = express();
 
 app.use(cors());
 app.use(express.json());
-
 
 const con = mysql2.createPool({
   host: process.env.MYSQLHOST,
@@ -25,6 +30,15 @@ const con = mysql2.createPool({
   },
 });
 
+con.getConnection((err, connection) => {
+  if (err) {
+    console.error("Database connection failed:");
+    console.error(err);
+  } else {
+    console.log("Database connected");
+    connection.release();
+  }
+});
 app.get("/reg",(req,res)=>{
     let {x,y,z,q}= req.query;
     let sql="insert into registration values(?,?,?,?) ";
@@ -105,15 +119,6 @@ app.get("/viewattendance",(req,res)=>{
 
 
 
-con.getConnection((err, connection) => {
-    if (err) {
-        console.log("Database connection failed:");
-        console.log(err);
-    } else {
-        console.log("Database connected");
-        connection.release(); // Return connection to the pool
-    }
-});
 app.post("/addmarks", (req, res) => {
 
     let {
