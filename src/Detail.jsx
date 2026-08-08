@@ -99,9 +99,9 @@ function Detail() {
             {y.map((e, index) => (
             <div className="box" key={index}>
   <p><span><b>{e.subject1} :</b></span> <span>{e.marks1}</span></p>
-  <p><span><b>{e.subject2} :</b></span> <span>{e.marks1}</span></p>
-  <p><span><b>{e.subject3} :</b></span> <span>{e.marks1}</span></p>
-  <p><span><b>{e.subject4} :</b></span> <span>{e.marks1}</span></p>
+  <p><span><b>{e.subject2} :</b></span> <span>{e.marks2}</span></p>
+  <p><span><b>{e.subject3} :</b></span> <span>{e.marks3}</span></p>
+  <p><span><b>{e.subject4} :</b></span> <span>{e.marks4}</span></p>
  
 </div>
             ))}
