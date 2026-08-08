@@ -173,7 +173,7 @@ p{
 .inbox{
 
 
-    width:500px;
+    width:370px;
 
 
     margin:30px auto;
@@ -369,14 +369,9 @@ p{
     padding:15px 18px;
 
 
-    margin-bottom:15px;
+    margin-bottom:10px;
 
-
-    display:flex;
-
-
-    justify-content:space-between;
-
+     display:grid;
 
     font-size:16px;
 
