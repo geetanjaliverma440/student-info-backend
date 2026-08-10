@@ -23,7 +23,7 @@ function Login() {
 
  return (
 
-<div className="login-page">
+<form className="login-page">
 
     <div className="login-box">
 
@@ -76,7 +76,7 @@ function Login() {
 
     </div>
 
-</div>
+</form>
 
 );
 }

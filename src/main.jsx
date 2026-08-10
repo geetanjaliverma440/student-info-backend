@@ -18,7 +18,7 @@ import { FaUser, FaLock, FaClipboardList } from "react-icons/fa";
 function Menu() {
   return (
     <div className="outer">
-      <h1>🎓 Student Information System</h1>
+      <h3>🎓 Student Information System</h3>
 
       <p>
         Register new students, securely log in, and manage academic

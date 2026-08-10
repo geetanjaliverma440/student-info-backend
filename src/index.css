@@ -13,8 +13,9 @@ body {
     box-sizing: border-box;
 }
 
-.outer h1{
+.outer h3{
     color:#0F172A;
+    font-size: 24px;
     margin-bottom:10px;
     font-family:Poppins,sans-serif;
 }
@@ -25,10 +26,10 @@ body {
 }
 
 .outer p{
-    width:600px;
+    width:400px;
     text-align:center;
     color:#64748B;
-    font-size:18px;
+    font-size:15px;
     margin-bottom:35px;
     line-height:30px;
     font-family:Inter,sans-serif;

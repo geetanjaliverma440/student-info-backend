@@ -29,7 +29,7 @@ function Addattendance() {
   }
 
   return (
-    <div className="outer1">
+    <form className="outer1">
 
       <div className="title-section">
         <FaClipboardCheck className="page-icon attendance-icon" />
@@ -101,7 +101,7 @@ function Addattendance() {
 
       <button onClick={show}>Save Attendance</button>
 
-    </div>
+    </form>
   );
 }
 

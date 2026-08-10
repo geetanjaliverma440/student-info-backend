@@ -31,7 +31,7 @@ function Registration() {
   }
 
   return (
-    <div className="outer1">
+    <form className="outer1">
 
       <h2>Create Your Account</h2>
 
@@ -74,7 +74,7 @@ function Registration() {
         <NavLink to="/login"> Sign In</NavLink>
       </p>
 
-    </div>
+    </form>
   );
 }
 

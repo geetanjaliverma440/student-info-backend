@@ -41,7 +41,7 @@ function AddMarks() {
     };
 
     return (
-        <div className="page">
+        <form className="page">
 
             <div className="marks-box">
 
@@ -153,7 +153,7 @@ function AddMarks() {
 
             </div>
 
-        </div>
+        </form>
     );
 }
 

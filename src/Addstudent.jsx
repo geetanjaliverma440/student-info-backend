@@ -27,7 +27,7 @@ function Addstudent() {
   }
 
   return (
-    <div className="outer1">
+    <form className="outer1">
 
       <div className="title-section">
         <FaUserGraduate className="page-icon" />
@@ -69,7 +69,7 @@ function Addstudent() {
 
       <button onClick={show}>Save Student</button>
 
-    </div>
+    </form>
   );
 }
 
