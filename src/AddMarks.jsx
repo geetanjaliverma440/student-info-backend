@@ -1,8 +1,10 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./AddMarks.css";
 import { FaChartBar } from "react-icons/fa";
 function AddMarks() {
     const [id, setId] = useState("");
+    const navigate = useNavigate();
 
     const [subject1, setSubject1] = useState("");
     const [subject2, setSubject2] = useState("");
@@ -14,32 +16,41 @@ function AddMarks() {
     const [marks3, setMarks3] = useState("");
     const [marks4, setMarks4] = useState("");
 
-    const saveMarks = async (e) => {
-         e.preventDefault();
-        const data = {
-            id,
-            subject1,
-            marks1,
-            subject2,
-            marks2,
-            subject3,
-            marks3,
-            subject4,
-            marks4
-        };
+   const saveMarks = async (e) => {
+    e.preventDefault();
 
-        const response = await fetch("https://student-info-backend-75ai.onrender.com/addmarks", {
+    const data = {
+        id,
+        subject1,
+        marks1,
+        subject2,
+        marks2,
+        subject3,
+        marks3,
+        subject4,
+        marks4
+    };
+
+    const response = await fetch(
+        "https://student-info-backend-75ai.onrender.com/addmarks",
+        {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(data)
-        });
+        }
+    );
 
-        const result = await response.json();
+    const result = await response.json();
 
+    if (result.message === "Marks saved successfully") {
+        alert("Marks saved successfully");
+        navigate("/Dash");
+    } else {
         alert(result.message);
-    };
+    }
+};
 
     return (
         <form className="page" onSubmit={saveMarks}>
