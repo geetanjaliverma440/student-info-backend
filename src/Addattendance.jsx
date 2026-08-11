@@ -9,23 +9,30 @@ function Addattendance() {
   let [b, setb] = useState("");
   let [c, setc] = useState("");
   let [d, setd] = useState("");
-  let [e, sete] = useState("");
+  let [totalClasses, setTotalClasses] = useState("");
   let [f, setf] = useState("");
 
-  async function show(e) {
-     e.preventDefault();
-    let res = await fetch(
-      `https://student-info-backend-75ai.onrender.com/attendance?a=${a}&b=${b}&c=${c}&d=${d}&e=${e}&f=${f}`
-    );
+  async function show(event) {
+    event.preventDefault();
 
-    let data = await res.json();
+    try {
+      let res = await fetch(
+        `https://student-info-backend-75ai.onrender.com/attendance?a=${a}&b=${b}&c=${c}&d=${d}&e=${totalClasses}&f=${f}`
+      );
 
-    alert("Saved successfully");
+      let data = await res.json();
 
-    if (data == "Saved succesfully") {
-      navigate("/addmarks");
-    } else {
-      alert("Invalid");
+      console.log("Attendance response:", data);
+
+      if (data === "Saved succesfully") {
+        alert("Saved successfully");
+        navigate("/addmarks");
+      } else {
+        alert("Invalid");
+      }
+    } catch (error) {
+      console.error("Attendance error:", error);
+      alert("Something went wrong!");
     }
   }
 
@@ -85,7 +92,7 @@ function Addattendance() {
           <input
             type="number"
             placeholder="Total Classes"
-            onChange={(e) => sete(e.target.value)}
+            onChange={(e) => setTotalClasses(e.target.value)}
           />
         </div>
 
@@ -100,7 +107,9 @@ function Addattendance() {
 
       </div>
 
-      <button type="submit">Save Attendance</button>
+      <button type="submit">
+        Save Attendance
+      </button>
 
     </form>
   );
