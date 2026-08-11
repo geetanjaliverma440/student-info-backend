@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { useNavigate, NavLink } from "react-router-dom";
 
@@ -7,78 +8,71 @@ function Login() {
   let [x, setx] = useState("");
   let [y, sety] = useState("");
 
-  async function show() {
-    let result = await fetch(
-      `https://student-info-backend-75ai.onrender.com/login?x=${x}&y=${y}`
-    );
+  async function show(e) {
+    e.preventDefault();
 
-    let data = await result.json();
+    try {
+      let result = await fetch(
+        `https://student-info-backend-75ai.onrender.com/login?x=${encodeURIComponent(x)}&y=${encodeURIComponent(y)}`
+      );
 
-    if (data == "valid") {
-      navigate("/Dash");
-    } else {
-      alert("Invalid Password");
+      let data = await result.json();
+
+      if (data === "valid") {
+        navigate("/Dash");
+      } else {
+        alert("Invalid Password");
+      }
+    } catch (error) {
+      console.error("Login error:", error);
+      alert("Unable to connect to server");
     }
   }
 
- return (
-
-<form className="login-page">
-
-    <div className="login-box">
-
+  return (
+    <form className="login-page" onSubmit={show}>
+      <div className="login-box">
 
         <h2>Welcome Back 👋</h2>
 
-
         <p className="subtitle">
-            Sign in to access the Student Information System.
+          Sign in to access the Student Information System.
         </p>
-
-
 
         <label>Student ID</label>
 
         <input
-            type="text"
-            placeholder="Enter Student ID"
-            onChange={(e)=>setx(e.target.value)}
+          type="text"
+          placeholder="Enter Student ID"
+          value={x}
+          onChange={(e) => setx(e.target.value)}
         />
-
-
 
         <label>Password</label>
 
         <input
-            type="password"
-            placeholder="Enter Password"
-            onChange={(e)=>sety(e.target.value)}
+          type="password"
+          placeholder="Enter Password"
+          value={y}
+          onChange={(e) => sety(e.target.value)}
         />
 
-
-
-        <button onClick={show}>
-            Sign In
+        <button type="submit">
+          Sign In
         </button>
 
-
-
         <p className="register-text">
+          Don't have an account?
 
-            Don't have an account?
-
-            <NavLink to="/registration">
-                Create Account
-            </NavLink>
-
+          <NavLink to="/registration">
+            Create Account
+          </NavLink>
         </p>
 
-
-    </div>
-
-</form>
-
-);
+      </div>
+    </form>
+  );
 }
 
 export default Login;
+
