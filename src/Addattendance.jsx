@@ -100,7 +100,7 @@ function Addattendance() {
 
       </div>
 
-      <button onSubmit={show}>Save Attendance</button>
+      <button onClick={show}>Save Attendance</button>
 
     </form>
   );

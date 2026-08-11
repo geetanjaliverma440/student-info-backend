@@ -68,7 +68,7 @@ function Addstudent() {
         onChange={(e) => setq(e.target.value)}
       />
 
-      <button onSubmit={show}>Save Student</button>
+      <button onClick={show}>Save Student</button>
 
     </form>
   );
