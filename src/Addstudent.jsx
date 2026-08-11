@@ -10,7 +10,8 @@ function Addstudent() {
   let [z, setz] = useState("");
   let [q, setq] = useState("");
 
-  async function show() {
+  async function show(e) {
+     e.preventDefault();
     let res = await fetch(
       `https://student-info-backend-75ai.onrender.com/student?x=${x}&y=${y}&z=${z}&q=${q}`
     );
@@ -27,7 +28,7 @@ function Addstudent() {
   }
 
   return (
-    <form className="outer1">
+    <form className="outer1" onSubmit={show}>
 
       <div className="title-section">
         <FaUserGraduate className="page-icon" />
@@ -67,7 +68,7 @@ function Addstudent() {
         onChange={(e) => setq(e.target.value)}
       />
 
-      <button onClick={show}>Save Student</button>
+      <button onSubmit={show}>Save Student</button>
 
     </form>
   );

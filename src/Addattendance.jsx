@@ -12,7 +12,8 @@ function Addattendance() {
   let [e, sete] = useState("");
   let [f, setf] = useState("");
 
-  async function show() {
+  async function show(e) {
+     e.preventDefault();
     let res = await fetch(
       `https://student-info-backend-75ai.onrender.com/attendance?a=${a}&b=${b}&c=${c}&d=${d}&e=${e}&f=${f}`
     );
@@ -29,7 +30,7 @@ function Addattendance() {
   }
 
   return (
-    <form className="outer1">
+    <form className="outer1" onSubmit={show}>
 
       <div className="title-section">
         <FaClipboardCheck className="page-icon attendance-icon" />
@@ -99,7 +100,7 @@ function Addattendance() {
 
       </div>
 
-      <button onClick={show}>Save Attendance</button>
+      <button onSubmit={show}>Save Attendance</button>
 
     </form>
   );

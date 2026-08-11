@@ -14,7 +14,8 @@ function AddMarks() {
     const [marks3, setMarks3] = useState("");
     const [marks4, setMarks4] = useState("");
 
-    const saveMarks = async () => {
+    const saveMarks = async (e) => {
+         e.preventDefault();
         const data = {
             id,
             subject1,
@@ -41,7 +42,7 @@ function AddMarks() {
     };
 
     return (
-        <form className="page">
+        <form className="page" onSubmit={saveMarks}>
 
             <div className="marks-box">
 
@@ -147,7 +148,7 @@ function AddMarks() {
 
 
                 {/* Save button */}
-                <button className="save-btn" onClick={saveMarks}>
+                <button className="save-btn" onSubmit={saveMarks}>
                    Submit Marks
                 </button>
 
