@@ -148,7 +148,7 @@ function AddMarks() {
 
 
                 {/* Save button */}
-                <button className="save-btn" onSubmit={saveMarks}>
+                <button className="save-btn"  type="submit">
                    Submit Marks
                 </button>
 
